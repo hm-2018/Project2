@@ -1,0 +1,145 @@
+16. Heart Disease Analysis | Python Pandas Project
+
+Busness Understand 
+
+Browse featurs 
+
+busness understand :browse featurse ever column
+
+@app.route("/chartData" , method =['POST'])
+def chartData():
+    return render_template('Describe.html')
+
+             <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+#sns.countplot(data1['sex'])
+#plt.xticks([0,1],['Femal','Male'])
+#plt.show()
+# plt.figure(figsize=(20, 12))
+    #plt.figure(figsize=(17,6))
+    #sns.heatmap(data.corr(), annot=True)
+    #imagePath = os.path.join('static','image' + '.png')
+    #plt.savefig("imagePath")
+   #plt.savefig("C:/Users/Hmood/PycharmProjects/pythonProjectTest/static/image/coorleation.png", transparent=True)
+   #plt.figure(figsize=(17, 6))
+    #sns.histplot(x=data['age'], kde=True, bins=15)
+    #plt.savefig("C:/Users/Hmood/PycharmProjects/pythonProjectTest/static/image/Age.png", transparent=True)
+    #plt.show()
+    #display Data
+/*******************************تطبيق****************************
+import pandas as pd
+from tabulate  import tabulate
+import numpy as np
+import  matplotlib.pyplot as plt
+import os
+import  seaborn as sns
+data1 =pd.read_csv('heart.csv')
+plt.figure(figsize=(17, 6))
+sns.heatmap(data1.corr(), annot=True)
+plt.savefig("C:/Users/Hmood/PycharmProjects/pythonProjectTest/static/image/coorleation1.png", transparent=True)
+/************************************
+import pandas as pd
+from tabulate  import tabulate
+import numpy as np
+import  matplotlib.pyplot as plt
+import os
+import  seaborn as sns
+data1 =pd.read_csv('heart.csv')
+#plt.figure(figsize=(17,6))
+sns.countplot(x='sex',hue='output',data=data1)
+plt.xticks([0,1],['Male','Female'])
+plt.legend(labels=['No-disease','Deises'])
+#plt.savefig("C:/Users/Hmood/PycharmProjects/pythonProjectTest/static/image/MF.png", transparent=True)
+plt.show()
+/*******************************************************
+14-check chest pain type 
+1-value 0: typical angina
+2-value 1:atypical angina
+3-value 2:non-anginal pain 
+4-value 3:asymptomatic
+sns.countplot(x='cp',hue='cp',data=data)
+plt.xticks([0,1,2,3])
+plt.legend(labels=['Typical angina','aTypical angina','non -anginal plain','asymptomatic']),
+plt.show()
+/***************************************************************
+show the chest Pain Distribution as per Target Variable
+sns.countplot(x='cp',hue='output',data=data)
+plt.xticks([0,1,2,3])
+plt.legend(labels=['Chest pain','Target'])
+plt.show()
+/************************************************
+show Fasting Blood Sugar Distribution According To Target Variable
+sns.countplot(x='fbs',hue='output',data=data)
+#plt.xticks([0,1,2,3])
+plt.legend(labels=['No-Disease','Disease'])
+plt.show()
+/*************************************************************
+check Resting Blood Pressure Distribution *****************
+data['trtbps'].hist()
+plt.legend(labels=['check Resting Blood Pressure Distribution'])
+plt.show()
+/********************************************************
+Compare Resting Blood Pressure As Per Sex Column
+g = sns.FacetGrid(data,hue='sex',aspect=4)
+g.map(sns.kdeplot,'trtbps',shade=True)
+plt.legend(labels=['Male','Female'])
+plt.show()
+/**************************************************
+Show Distribution of Serum cholesterol
+/*************************************************
+Plot continous Varabial 
+cat_val =[]
+cont_val=[]
+for column in data.columns:
+    if data[column].nunique()<=10:
+        cat_val.append(column)
+    else:
+        cont_val.append((column))
+data.hist(cont_val,figsize=(15,7))
+plt.tight_layout()
+plt.show()
+/**************************************************************************************
+plt.figure(figsize=(24,20))
+plt.subplot(7, 2, 1)
+fig= df['age'].hist(bins=20)
+fig.set_xlabel('Age')
+plt.subplot(7, 2, 2)
+fig = df['sex'].hist(bins=20)
+fig.set_xlabel('Sex')
+plt.subplot(7, 2, 3)
+fig = df['cp'].hist(bins=20)
+fig.set_xlabel('CP')
+plt.subplot(7, 2, 4)
+fig = df['trtbps'].hist(bins=20)
+fig.set_xlabel('trtbps')
+plt.subplot(7, 2, 5)
+fig = df['chol'].hist(bins=20)
+fig.set_xlabel('chol')
+plt.subplot(7, 2, 6)
+fig = df['fbs'].hist(bins=20)
+fig.set_xlabel('fbs')
+plt.subplot(7, 2, 7)
+fig = df['restecg'].hist(bins=20)
+fig.set_xlabel('restecg')
+plt.subplot(7, 2, 8)
+fig = df['thalachh'].hist(bins=20)
+fig.set_xlabel('thalachh')
+plt.subplot(7, 2, 9)
+fig = df['exng'].hist(bins=20)
+fig.set_xlabel('exng')
+plt.subplot(7, 2, 10)
+fig = df['oldpeak'].hist(bins=20)
+fig.set_xlabel('oldpeak')
+plt.subplot(7, 2, 11)
+fig = df['slp'].hist(bins=20)
+fig.set_xlabel('slp')
+plt.subplot(7, 2, 12)
+fig = df['caa'].hist(bins=20)
+fig.set_xlabel('caa')
+plt.subplot(7, 2, 13)
+fig = df['thall'].hist(bins=20)
+fig.set_xlabel('thall')
+plt.show()
+/******************************how deploy flask
+FlaskWeb
+5090
+C:\Program Files (x86)\IIS Express\appcmd.exe" /apphostconfig:C:\Path\To\applicationhost.config
